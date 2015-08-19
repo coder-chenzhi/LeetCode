@@ -18,7 +18,7 @@ class ListNode:
 class Solution:
     # @param {ListNode} head
     # @return {ListNode}
-    def swapPairs(self, head):
+    def swapPairs_my_solution(self, head):
         if head is None or head.next is None:
             return head
         a = head
@@ -48,6 +48,15 @@ class Solution:
             before = b
 
         return head
+
+    def swapPairs(self, head):
+        pre, pre.next = self, head
+        while pre.next and pre.next.next:
+            a = pre.next
+            b = a.next
+            pre.next, b.next, a.next = b, a, b.next
+            pre = a
+        return self.next
 
 
 def printList(head):
